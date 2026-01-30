@@ -18,4 +18,4 @@ These pages are not linked from any other file in the project (no `href` to them
 
 **Total: 11 pages** with no references in the project.
 
-_index.html_ is reached via `href="/"` from every page, so it is not an orphan.
+_index.html_ is reached via `href="/index.html"` from every page, so it is not an orphan.
