@@ -165,3 +165,48 @@ pairs.forEach((p) => {
   console.log(`  WCAG AA Large Text  (3.0:1): ${aaLarge}`);
   console.log("---");
 });
+
+const lightColors = {
+    bg: "#ffffff",
+    bgLight: "#f5f5f5",
+    text: "#1a1a1a",
+    textLight: "#444444", // #444 expands to #444444
+    primary: "#0b497f",
+    accent: "#ff8c00",
+    legacyEmail: "#0b497f",
+    legacyInsta: "#c13584",
+    legacyCardBg: "#f5f5f5" // approx (starts with bg-light)
+};
+
+const lightPairs = [
+    { name: "Body Text (Text on Bg)", fg: lightColors.text, bg: lightColors.bg },
+    { name: "Light Text (TextLight on Bg)", fg: lightColors.textLight, bg: lightColors.bg },
+    { name: "Headings/Links (Primary on Bg)", fg: lightColors.primary, bg: lightColors.bg },
+    { name: "Button Primary (White on Primary)", fg: "#ffffff", bg: lightColors.primary },
+    { name: "Button Accent (White on Accent - OLD)", fg: "#ffffff", bg: lightColors.accent },
+    { name: "Button Accent (Dark on Accent - NEW)", fg: "#1a1a1a", bg: lightColors.accent },
+];
+
+// Light Mode Blended
+// Legacy Email: Color Primary (#0b497f) on rgba(11, 73, 127, 0.08) on white
+const lightEmailBg = blend(lightColors.bg, lightColors.primary, 0.08);
+lightPairs.push({ name: "Legacy Email (Primary on Light Blend)", fg: lightColors.primary, bg: lightEmailBg });
+
+// Legacy Insta: Color #c13584 on rgba(193, 53, 132, 0.08) on white
+const lightInstaBg = blend(lightColors.bg, "#c13584", 0.08);
+lightPairs.push({ name: "Legacy Insta (#c13584 on Light Blend)", fg: "#c13584", bg: lightInstaBg });
+
+console.log("\nContrast Ratios (Light Mode):");
+console.log("-----------------------------");
+lightPairs.forEach((p) => {
+  const ratio = getContrast(p.fg, p.bg).toFixed(2);
+  const aaNormal = ratio >= 4.5 ? "PASS" : "FAIL";
+  const aaLarge = ratio >= 3.0 ? "PASS" : "FAIL";
+
+  console.log(`${p.name}:`);
+  console.log(`  FG: ${p.fg}, BG: ${p.bg}`);
+  console.log(`  Ratio: ${ratio}:1`);
+  console.log(`  WCAG AA Normal Text (4.5:1): ${aaNormal}`);
+  console.log(`  WCAG AA Large Text  (3.0:1): ${aaLarge}`);
+  console.log("---");
+});

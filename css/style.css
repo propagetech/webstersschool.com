@@ -1822,9 +1822,15 @@ li.gallery-item-wrapper {
   nav#main-navigation ul {
     flex-direction: column;
     padding: var(--space-md);
-    align-content: flex-end;
-    align-items: end;
+    align-items: stretch;
+    text-align: right;
   }
+
+  nav#main-navigation li {
+    text-align: right;
+    width: 100%;
+  }
+
   .dropdown {
     text-align: right;
   }
@@ -1836,9 +1842,12 @@ li.gallery-item-wrapper {
     transform: none;
     box-shadow: none;
     border: none;
-    padding-left: var(--space-lg);
+    padding-left: 0;
+    padding-right: var(--space-md);
     background: transparent;
     min-width: auto;
+    text-align: right;
+    align-items: flex-end;
   }
 
   nav#main-navigation .dropdown-menu a {
