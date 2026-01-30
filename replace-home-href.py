@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Replace href="/" with href="/index.html" for home page refs in webstersschool.com.
+Replace href="/" with href="./index.html" for home page refs in webstersschool.com.
 Run from project root or from this script's directory.
 """
 
@@ -13,7 +13,7 @@ SITE_DIR = SCRIPT_DIR
 
 # Only replace exact home ref, not href="/something"
 OLD_HREF = 'href="/"'
-NEW_HREF = 'href="/index.html"'
+NEW_HREF = 'href="./index.html"'
 
 # Extensions to process
 TEXT_EXTENSIONS = {".html", ".htm", ".md", ".txt"}
