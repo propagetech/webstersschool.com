@@ -1843,7 +1843,7 @@ li.gallery-item-wrapper {
     box-shadow: none;
     border: none;
     padding-left: 0;
-    padding-right: var(--space-md);
+    padding-right: var(--space-sm);
     background: transparent;
     min-width: auto;
     text-align: right;
