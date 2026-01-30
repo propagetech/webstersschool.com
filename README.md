@@ -1,4 +1,4 @@
-## webstersschool.com – HTML pages with no references (orphans)
+## webstersschool.com - HTML pages with no references (orphans)
 
 These pages are not linked from any other file in the project (no `href` to them). They may be intentional (e.g. error page, legacy) or candidates to add to the main nav.
 

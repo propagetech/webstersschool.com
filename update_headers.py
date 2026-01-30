@@ -1,27 +1,8 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Page Not Found (404) | Websters School</title>
-    <link
-      rel="icon"
-      type="image/webp"
-      href="imgs/6fd408ffd43b927cddf73e003b475cf9.webp"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+import glob
+import re
+import os
 
-  <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <header>
+NEW_HEADER = """    <header>
       <div class="header-container">
         <a
           href="index.html"
@@ -122,54 +103,29 @@
           </button>
         </div>
       </div>
-    </header>
+    </header>"""
 
-    <main id="main-content">
-      <section class="container">
-        <article>
-          <h1>Page Not Found (404)</h1>
-          <p>
-            The page you are looking for could not be found. It may have been
-            moved or the link may be incorrect.
-          </p>
-          <p>
-            <a href="index.html" class="btn">Go to Home</a>
-            <a href="contact.html" class="btn">Contact Us</a>
-          </p>
-        </article>
-      </section>
-    </main>
+base_dir = '/Users/chetan/Documents/propage/webstersschool.com'
+html_files = glob.glob(os.path.join(base_dir, '*.html'))
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="about.html">About Us</a> &bull;
-          <a href="admissions.html">Admissions</a> &bull;
-          <a href="gallery.html">Gallery</a> &bull;
-          <a href="contact.html">Contact Us</a>
-        </div>
-        <p class="footer-address">
-          <strong>Address:</strong> Ittamadu Campus (Pre-Nursery to X), BSK III
-          Stage, Bengaluru, Karnataka - 560085
-        </p>
-        <div class="footer-contact">
-          <a href="tel:+919845984504">9845984504</a>
-          <a href="tel:08026724456">080 2672 4456</a> /
-          <a href="tel:08026725132">080 2672 5132</a>
-          <a href="mailto:info_hs@webstersschool.com"
-            >info_hs@webstersschool.com</a
-          >
-        </div>
-        <p class="footer-copyright">&copy; 2025 Websters School</p>
-        <p class="footer-powered">
-          Powered by
-          <a href="https://propage.in" target="_blank" rel="noopener noreferrer"
-            >ProPage.in</a
-          >
-        </p>
-      </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-  </body>
-</html>
+for file_path in html_files:
+    if file_path.endswith('index.html'):
+        continue
+        
+    print(f"Processing {file_path}...")
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Check if header exists
+    if '<header>' in content:
+        # Replace the header
+        new_content = re.sub(r'<header>.*?</header>', NEW_HEADER, content, flags=re.DOTALL)
+        
+        if new_content != content:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            print(f"Updated {file_path}")
+        else:
+            print(f"No changes needed for {file_path} (header might be identical)")
+    else:
+        print(f"Warning: No <header> tag found in {file_path}")

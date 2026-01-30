@@ -125,6 +125,76 @@
 
     <header>
       <div class="header-container">
+        <a
+          href="index.html"
+          class="mobile-logo"
+          aria-label="Websters School home"
+        >
+          <img
+            src="imgs/745072416122103a657bc7a0d8fa0646.webp"
+            alt="Websters School"
+            width="116"
+            height="48"
+          />
+        </a>
+        <div class="logo-item">
+          <a href="index.html" class="logo" aria-label="Websters School home">
+            <img
+              src="imgs/745072416122103a657bc7a0d8fa0646.webp"
+              alt="Websters School"
+              width="116"
+              height="48"
+            />
+          </a>
+        </div>
+        <nav id="main-navigation" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="dropdown">
+              <a href="#" aria-haspopup="true" aria-expanded="false"
+                >Academics
+                <svg
+                  class="dropdown-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline></svg
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="academics-pre-nursery-nursery.html"
+                    >Pre-Nursery to UKG</a
+                  >
+                </li>
+                <li>
+                  <a href="academics-primary-middle-school.html"
+                    >Primary &amp; Middle School</a
+                  >
+                </li>
+                <li><a href="academics-high-school.html">High School</a></li>
+              </ul>
+            </li>
+            <li><a href="facilities.html">Facilities</a></li>
+
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li>
+              <a href="50th-anniversary-celebration-future.html"
+                >50 Years Celebration</a
+              >
+            </li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
         <div class="header-controls">
           <button
             class="theme-toggle"
@@ -167,73 +237,27 @@
             <span aria-hidden="true">&#9776;</span>
           </button>
         </div>
-        <nav id="main-navigation" aria-label="Main navigation">
-          <ul>
-            <li class="logo-item">
-              <a
-                href="index.html"
-                class="logo"
-                aria-label="Websters School home"
-              >
-                <img
-                  src="imgs/745072416122103a657bc7a0d8fa0646.webp"
-                  alt="Websters School"
-                  width="116"
-                  height="48"
-                />
-              </a>
-            </li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li class="dropdown">
-              <a href="#" aria-haspopup="true" aria-expanded="false"
-                >Academics</a
-              >
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="academics-pre-nursery-nursery.html"
-                    >Pre-Nursery to UKG</a
-                  >
-                </li>
-                <li>
-                  <a href="academics-primary-middle-school.html"
-                    >Primary &amp; Middle School</a
-                  >
-                </li>
-                <li><a href="academics-high-school.html">High School</a></li>
-              </ul>
-            </li>
-            <li><a href="facilities.html">Facilities</a></li>
-
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="admissions.html">Admissions</a></li>
-            <li>
-              <a href="50th-anniversary-celebration-future.html"
-                >50 Years Celebration</a
-              >
-            </li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
 
     <main id="main-content">
-      <section class="hero"></section>
+      <section class="hero">
+        <img
+          src="imgs/17677821463701.png"
+          alt="Websters School"
+          class="hero-image"
+        />
+      </section>
 
       <section class="container" aria-labelledby="admissions-cta">
-        <h2 id="admissions-cta" class="section-title">
-          <span style="color: var(--accent); font-weight: 700"
-            >Admissions Open!</span
-          >
-        </h2>
-        <p style="text-align: center; font-size: 1.15rem">
-          Kindly contact our office for admissions and enquiries. Websters
-          School offers schooling from Pre-Nursery to Class X.
-        </p>
-        <p style="text-align: center; margin-top: var(--space-md)">
-          <a href="contact.html" class="btn">Contact Us</a>
-        </p>
+        <div class="cta-banner">
+          <h2 id="admissions-cta">Admissions Open!</h2>
+          <p>
+            Kindly contact our office for admissions and enquiries. Websters
+            School offers schooling from Pre-Nursery to Class X.
+          </p>
+          <a href="contact.html" class="btn btn-accent">Contact Us</a>
+        </div>
       </section>
 
       <section class="container" aria-labelledby="joy-heading">
@@ -244,7 +268,7 @@
           <div class="feature-img">
             <img
               src="imgs/4dfaa3853cb526111fb694ae341668cc.webp"
-              alt="Websters School campus – trusted by families for nearly 50 years"
+              alt="Websters School campus - trusted by families for nearly 50 years"
               width="600"
               height="400"
               loading="lazy"
@@ -262,25 +286,25 @@
             <p><strong>Why Parents Choose Websters</strong></p>
             <ul>
               <li>
-                <strong>Academic Excellence</strong> – A strong English-medium
+                <strong>Academic Excellence</strong> - A strong English-medium
                 curriculum aligned with national standards.
               </li>
               <li>
-                <strong>Values &amp; Discipline</strong> – A culture that
+                <strong>Values &amp; Discipline</strong> - A culture that
                 nurtures self-discipline, respect, leadership, empathy, and
                 responsibility.
               </li>
               <li>
-                <strong>Safe &amp; Caring Environment</strong> – Every child is
+                <strong>Safe &amp; Caring Environment</strong> - Every child is
                 known, supported, and encouraged in a secure, inclusive campus
                 setting.
               </li>
               <li>
-                <strong>Holistic Development</strong> – A balanced focus on
+                <strong>Holistic Development</strong> - A balanced focus on
                 academics, sports, arts, clubs, and co-curricular learning.
               </li>
               <li>
-                <strong>A Legacy of Trust</strong> – Generations of alumni who
+                <strong>A Legacy of Trust</strong> - Generations of alumni who
                 carry Websters values forward, in India and around the world.
               </li>
             </ul>
@@ -341,16 +365,16 @@
           </article>
           <article class="programme-card">
             <h3>Middle School</h3>
-            <p><strong style="color: var(--accent)">Classes I–VIII</strong></p>
+            <p><strong style="color: var(--accent)">Classes I-VIII</strong></p>
             <p>
-              Strong academics with personalised attention, building
+              Strong academics with personalized attention, building
               communication, teamwork, and scientific thinking.
             </p>
             <p><a href="academics-primary-middle-school.html">Learn more</a></p>
           </article>
           <article class="programme-card">
             <h3>Senior School</h3>
-            <p><strong style="color: var(--accent)">Classes IX–X</strong></p>
+            <p><strong style="color: var(--accent)">Classes IX-X</strong></p>
             <p>
               Exam-focused academics, lab-based science learning, career
               guidance, and leadership development.
@@ -359,7 +383,7 @@
           </article>
         </div>
         <p style="text-align: center">
-          <strong>Holistic Development</strong> – Clubs, competitions, community
+          <strong>Holistic Development</strong> - Clubs, competitions, community
           service, sports, and cultural activities that support all-round
           growth.
         </p>
@@ -383,7 +407,7 @@
           <div class="feature-img">
             <img
               src="imgs/76fb91ac5a7ab6d217658934e6aca198.webp"
-              alt="What sets Websters School apart – experienced teachers and modern facilities"
+              alt="What sets Websters School apart - experienced teachers and modern facilities"
               width="600"
               height="400"
               loading="lazy"
@@ -392,25 +416,25 @@
           <div>
             <ul>
               <li>
-                <strong>Experienced Teachers</strong> – Dedicated educators who
+                <strong>Experienced Teachers</strong> - Dedicated educators who
                 guide every child with care, consistency, and expertise.
               </li>
               <li>
-                <strong>Modern Facilities</strong> – Well-equipped laboratories,
+                <strong>Modern Facilities</strong> - Well-equipped laboratories,
                 AV rooms, library, playgrounds, and dedicated arts and music
                 spaces.
               </li>
               <li>
-                <strong>Safety First</strong> – A CCTV-monitored campus with
+                <strong>Safety First</strong> - A CCTV-monitored campus with
                 well-maintained classrooms and play areas.
               </li>
               <li>
-                <strong>Individual Attention</strong> – Remedial support,
+                <strong>Individual Attention</strong> - Remedial support,
                 counselling, and mentorship to support every learner&rsquo;s
                 journey.
               </li>
               <li>
-                <strong>Global Perspective</strong> – An alumni community
+                <strong>Global Perspective</strong> - An alumni community
                 thriving worldwide, preparing students for opportunities beyond
                 borders.
               </li>
@@ -421,62 +445,82 @@
     </main>
 
     <footer>
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="about.html">About Us</a> &bull;
-          <a href="admissions.html">Admissions</a> &bull;
-          <a href="gallery.html">Gallery</a> &bull;
-          <a href="contact.html">Contact Us</a> &bull;
-          <a href="security-compliance.html">Security &amp; Compliance</a>
+      <div class="footer-container">
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h4>About</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="50th-anniversary-celebration-future.html"
+              >50 Years Celebration</a
+            >
+          </div>
+          <div class="footer-col">
+            <h4>Academics</h4>
+            <a href="academics-pre-nursery-nursery.html">Pre-Nursery - UKG</a>
+            <a href="academics-primary-middle-school.html">Primary & Middle</a>
+            <a href="academics-high-school.html">High School</a>
+          </div>
+          <div class="footer-col">
+            <h4>Campus</h4>
+            <a href="facilities.html">Facilities</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="admissions.html">Admissions</a>
+            <a href="security-compliance.html">Security & Compliance</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="contact.html">Contact Us</a>
+            <div class="footer-social-icons">
+              <a
+                href="https://www.facebook.com/profile.php?id=61583926747989"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <img src="imgs/ce0ef47107c9510a947796cd185064cb.webp" alt="Facebook" />
+              </a>
+              <a
+                href="https://www.instagram.com/webstersschool_bangalore/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <img src="imgs/970fdf1384a7eba1c86cd1f1530a815f.webp" alt="Instagram" />
+              </a>
+              <a
+                href="https://x.com/WebstersSchool"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+              >
+                <img src="imgs/441c8a3698a33555f6987882a0a77c09.webp" alt="X (Twitter)" />
+              </a>
+            </div>
+          </div>
         </div>
+
+        <hr class="footer-separator" />
+
         <p class="footer-address">
           <strong>Address:</strong> Ittamadu Campus (Pre-Nursery to X), BSK III
-          Stage, Bengaluru, Karnataka – 560085
+          Stage, Bengaluru, Karnataka - 560085
         </p>
-        <div class="footer-contact">
-          <a href="tel:+919845984504">9845984504</a>
-          <a href="tel:08026724456">080 2672 4456</a> /
-          <a href="tel:08026725132">080 2672 5132</a>
-          <a href="mailto:info_hs@webstersschool.com"
-            >info_hs@webstersschool.com</a
-          >
+
+        <div class="footer-bottom-row">
+          <p class="footer-copyright">
+            &copy; 2026 Websters School. All Rights Reserved.
+          </p>
+          <div class="footer-email">
+            <span>
+              Email:
+              <a href="mailto:info_hs@webstersschool.com"
+                >info_hs@webstersschool.com</a
+              >
+            </span>
+          </div>
         </div>
-        <div class="social-links" aria-label="Social media">
-          <a
-            href="https://www.facebook.com/profile.php?id=61583926747989"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            ><img
-              src="imgs/ce0ef47107c9510a947796cd185064cb.webp"
-              alt=""
-              width="28"
-              height="28"
-          /></a>
-          <a
-            href="https://www.instagram.com/webstersschool_bangalore/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            ><img
-              src="imgs/970fdf1384a7eba1c86cd1f1530a815f.webp"
-              alt=""
-              width="28"
-              height="28"
-          /></a>
-          <a
-            href="https://x.com/WebstersSchool"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X (Twitter)"
-            ><img
-              src="imgs/441c8a3698a33555f6987882a0a77c09.webp"
-              alt=""
-              width="28"
-              height="28"
-          /></a>
-        </div>
-        <p class="footer-copyright">&copy; 2025 Websters School</p>
+
         <p class="footer-powered">
           Powered by
           <a href="https://propage.in" target="_blank" rel="noopener noreferrer"
