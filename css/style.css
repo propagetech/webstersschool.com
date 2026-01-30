@@ -1,4 +1,6 @@
 /* Websters School - Compliant styles: WCAG 2.1 AA, semantic, reduced-motion */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -172,7 +174,7 @@ header {
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-sm) var(--space-md);
+  padding: 0 var(--space-md);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -182,6 +184,8 @@ header {
 .logo {
   display: inline-block;
   text-decoration: none;
+  padding: 12px !important;
+  background: #fff;
 }
 .logo img {
   height: 48px;
@@ -269,6 +273,71 @@ nav#main-navigation a[aria-current="page"] {
   text-decoration: underline;
 }
 
+/* Dropdown Menu */
+nav#main-navigation li {
+  position: relative;
+  font-family: "Roboto Slab", serif;
+}
+
+nav#main-navigation .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+  flex-direction: column;
+  padding: var(--space-xs) 0;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+nav#main-navigation .dropdown-menu li {
+  margin: 0;
+  width: 100%;
+}
+
+nav#main-navigation .dropdown-menu a {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  white-space: nowrap;
+}
+
+nav#main-navigation .dropdown-menu a:hover {
+  background-color: var(--bg-light);
+  text-decoration: none;
+}
+
+/* Show dropdown on hover and focus-within */
+nav#main-navigation li:hover .dropdown-menu,
+nav#main-navigation li:focus-within .dropdown-menu {
+  display: flex;
+}
+
+/* Mobile Dropdown adjustment */
+@media (max-width: 768px) {
+  nav#main-navigation .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    border: none;
+    padding-left: var(--space-md);
+    width: 100%;
+    background: transparent;
+  }
+
+  nav#main-navigation li:hover .dropdown-menu,
+  nav#main-navigation li:focus-within .dropdown-menu {
+    display: flex;
+  }
+
+  nav#main-navigation .dropdown-menu a {
+    white-space: normal;
+  }
+}
+
 /* Main */
 main#main-content {
   min-height: 60vh;
@@ -281,24 +350,14 @@ main#main-content {
 
 /* Hero / banner */
 .hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary) 0%,
-    var(--primary-light) 100%
-  );
-  color: #fff;
-  padding: var(--space-2xl) var(--space-md);
-  text-align: center;
-  position: relative;
+  background-image: url("../imgs/17677821463701.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
-.hero h1,
-.hero h2 {
-  color: #fff;
-  margin-bottom: var(--space-sm);
-}
-.hero p {
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 0;
+.hero * {
+  display: none;
 }
 
 /* Cards & sections */
@@ -818,5 +877,45 @@ li.gallery-item-wrapper {
   }
   header {
     position: static;
+  }
+}
+
+/* Logo in Navigation */
+.logo-item {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-sm);
+  margin-bottom: 0 !important; /* Override li margin */
+}
+
+.logo-item a {
+  padding: 12px !important;
+  display: block;
+}
+
+.logo-item a:hover {
+  text-decoration: none !important;
+  background: none !important;
+}
+
+.logo-item img {
+  height: 110px; /* Slightly larger for visibility */
+  width: auto;
+  max-width: none;
+}
+
+/* Vertical alignment for nav items */
+nav#main-navigation ul {
+  align-items: center;
+}
+
+/* Adjust header layout if needed */
+@media (min-width: 992px) {
+  .header-container {
+    justify-content: center; /* Center everything */
+  }
+  .header-controls {
+    position: absolute;
+    right: var(--space-md);
   }
 }
