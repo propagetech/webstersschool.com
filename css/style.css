@@ -1822,8 +1822,12 @@ li.gallery-item-wrapper {
   nav#main-navigation ul {
     flex-direction: column;
     padding: var(--space-md);
+    align-content: flex-end;
+    align-items: end;
   }
-
+  .dropdown {
+    text-align: right;
+  }
   /* Mobile Dropdown Fixes */
   nav#main-navigation .dropdown-menu {
     position: static;
