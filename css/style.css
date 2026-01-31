@@ -1590,6 +1590,7 @@ footer {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--space-md);
   margin: var(--space-xl) 0;
+  padding: 0;
 }
 .gallery-item-wrapper a {
   display: block;
