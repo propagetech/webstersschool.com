@@ -157,6 +157,18 @@
     var playPauseBtn = null;
     var thumbStrip = null;
 
+    // Zoom & Swipe variables
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var initialPinchDistance = 0;
+    var currentScale = 1;
+    var lastScale = 1;
+    var translateX = 0;
+    var translateY = 0;
+    var lastTranslateX = 0;
+    var lastTranslateY = 0;
+    var isDragging = false;
+
     function buildLightbox() {
       if (lightboxEl) return lightboxEl;
       var overlay = document.createElement("div");
@@ -167,13 +179,25 @@
 
       var mainWrap = document.createElement("div");
       mainWrap.className = "gallery-lightbox__main";
+      // Enable touch actions for custom handling
+      mainWrap.style.touchAction = "none";
+
       mainImageEl = document.createElement("img");
       mainImageEl.className = "gallery-lightbox__image";
       mainImageEl.setAttribute("alt", "");
+      // Transform origin for zooming
+      mainImageEl.style.transformOrigin = "center center";
+
       captionEl = document.createElement("p");
       captionEl.className = "gallery-lightbox__caption";
       mainWrap.appendChild(mainImageEl);
       mainWrap.appendChild(captionEl);
+
+      // Touch events for Swipe & Zoom
+      mainWrap.addEventListener("touchstart", onTouchStart, { passive: false });
+      mainWrap.addEventListener("touchmove", onTouchMove, { passive: false });
+      mainWrap.addEventListener("touchend", onTouchEnd);
+      mainWrap.addEventListener("dblclick", onDoubleTap);
 
       var bottomBar = document.createElement("div");
       bottomBar.className = "gallery-lightbox__bottom-bar";
@@ -254,6 +278,111 @@
           });
         }
       });
+    }
+
+    function resetZoom() {
+      currentScale = 1;
+      lastScale = 1;
+      translateX = 0;
+      translateY = 0;
+      lastTranslateX = 0;
+      lastTranslateY = 0;
+      if (mainImageEl) {
+        mainImageEl.style.transform = "translate(0px, 0px) scale(1)";
+      }
+    }
+
+    function updateTransform() {
+      if (mainImageEl) {
+        mainImageEl.style.transform =
+          "translate(" +
+          translateX +
+          "px, " +
+          translateY +
+          "px) scale(" +
+          currentScale +
+          ")";
+      }
+    }
+
+    function getDistance(touches) {
+      return Math.hypot(
+        touches[0].pageX - touches[1].pageX,
+        touches[0].pageY - touches[1].pageY,
+      );
+    }
+
+    function onDoubleTap(e) {
+      e.preventDefault();
+      if (currentScale === 1) {
+        currentScale = 2.5;
+        // Simple center zoom
+        translateX = 0;
+        translateY = 0;
+      } else {
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+      }
+      lastScale = currentScale;
+      lastTranslateX = translateX;
+      lastTranslateY = translateY;
+      updateTransform();
+    }
+
+    function onTouchStart(e) {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        initialPinchDistance = getDistance(e.touches);
+        lastScale = currentScale;
+      } else if (e.touches.length === 1) {
+        touchStartX = e.touches[0].pageX;
+        touchStartY = e.touches[0].pageY;
+        isDragging = true;
+      }
+    }
+
+    function onTouchMove(e) {
+      e.preventDefault();
+      if (e.touches.length === 2) {
+        var dist = getDistance(e.touches);
+        if (initialPinchDistance > 0) {
+          currentScale = lastScale * (dist / initialPinchDistance);
+          if (currentScale < 1) currentScale = 1;
+          if (currentScale > 5) currentScale = 5;
+          updateTransform();
+        }
+      } else if (e.touches.length === 1 && isDragging) {
+        var dx = e.touches[0].pageX - touchStartX;
+        var dy = e.touches[0].pageY - touchStartY;
+        if (currentScale > 1) {
+          translateX = lastTranslateX + dx;
+          translateY = lastTranslateY + dy;
+          updateTransform();
+        }
+      }
+    }
+
+    function onTouchEnd(e) {
+      if (e.touches.length < 2) {
+        initialPinchDistance = 0;
+      }
+      if (e.touches.length === 0) {
+        isDragging = false;
+        if (currentScale > 1) {
+          lastTranslateX = translateX;
+          lastTranslateY = translateY;
+          lastScale = currentScale;
+        } else {
+          var dx = e.changedTouches[0].pageX - touchStartX;
+          var dy = e.changedTouches[0].pageY - touchStartY;
+          if (Math.abs(dx) > 50 && Math.abs(dy) < 50) {
+            if (dx < 0) next();
+            else prev();
+          }
+          resetZoom();
+        }
+      }
     }
 
     function goToIndex(index) {
