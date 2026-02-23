@@ -1251,7 +1251,7 @@ div#viamagus_Image_1154 {
 }
 .viamagusPageSettings,
 .viamagusPageSettings .viamagus-container {
-  font-family: "Roboto Slab";
+  font-family: var(--font-body);
 }
 .viamagus-heading1 {
   font-size: 40px;
@@ -3159,7 +3159,7 @@ div#viamagus_Image_1154 {
 
 .viamagusPageSettings,
 .viamagusPageSettings .viamagus-container {
-  font-family: "Roboto Slab";
+  font-family: var(--font-body);
 }
 
 .viamagus-heading1 {

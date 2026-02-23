@@ -1,21 +1,21 @@
 @font-face {
-  font-family: 'Roboto Slab';
+  font-family: var(--font-body);
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('fonts/6b5292ed555ddb81f3563c62273ede11.ttf') format('truetype');
+  src: url("fonts/6b5292ed555ddb81f3563c62273ede11.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Roboto Slab';
+  font-family: var(--font-body);
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('fonts/5599f0b91d66fd1561930c897fa45447.ttf') format('truetype');
+  src: url("fonts/5599f0b91d66fd1561930c897fa45447.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Roboto Slab';
+  font-family: var(--font-body);
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('fonts/b9eecc960a3326e410c9fe961b1f000d.ttf') format('truetype');
+  src: url("fonts/b9eecc960a3326e410c9fe961b1f000d.ttf") format("truetype");
 }
